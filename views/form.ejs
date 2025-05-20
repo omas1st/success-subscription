@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subscription Form</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <script>
+        function showPaymentDetails(method) {
+            document.querySelectorAll('.payment-details').forEach(el => el.style.display = 'none');
+            if(method) document.getElementById(method).style.display = 'block';
+        }
+
+        function copyAddress() {
+            navigator.clipboard.writeText('3Liim5xHAkLEgUjzfw2DNFqbEkzaXgWWu8');
+            alert('Bitcoin address copied!');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Premium Subscription Form</h1>
+        <form class="subscription-form" action="/submit" method="POST">
+            <div class="form-group">
+                <input type="text" name="name" class="form-input" placeholder="Full Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" class="form-input" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" name="whatsapp" class="form-input" placeholder="WhatsApp Number" required>
+            </div>
+
+            <div class="form-group">
+                <h2>Choose Subscription Plan</h2>
+                <div class="subscription-plans">
+                    <label class="plan-option">
+                        <input type="radio" name="subscriptionPlan" value="R500 Lunchtime" required>
+                        <span class="plan-details">
+                            <span class="plan-price">R500</span>
+                            <span class="plan-description">Lunchtime only (2 days)</span>
+                        </span>
+                    </label>
+                    <label class="plan-option">
+                        <input type="radio" name="subscriptionPlan" value="R500 Teatime">
+                        <span class="plan-details">
+                            <span class="plan-price">R500</span>
+                            <span class="plan-description">Teatime only (2 days)</span>
+                        </span>
+                    </label>
+                    <label class="plan-option">
+                        <input type="radio" name="subscriptionPlan" value="R700 Both">
+                        <span class="plan-details">
+                            <span class="plan-price">R700</span>
+                            <span class="plan-description">Lunchtime & Teatime (2 days)</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h2>Payment Method</h2>
+                <select name="paymentMethod" class="form-input" onchange="showPaymentDetails(this.value)" required>
+                    <option value="">Select Payment Method</option>
+                    <option value="bank">Deposit/Bank Transfer</option>
+                    <option value="crypto">Cryptocurrency</option>
+                </select>
+            </div>
+
+            <div id="bank" class="payment-details">
+                <h3>Bank Transfer Details</h3>
+                <div class="bank-details">
+                    <p><strong>Bank:</strong> FNB Bank</p>
+                    <p><strong>Account Name:</strong> Mama pty</p>
+                    <p><strong>Account Number:</strong> 62509963139</p>
+                    <p><strong>Reference:</strong> 0672626266</p>
+                </div>
+            </div>
+
+            <div id="crypto" class="payment-details">
+                <h3>Crypto Payment Details</h3>
+                <div class="crypto-details">
+                    <p><strong>Bitcoin Wallet:</strong></p>
+                    <div class="wallet-address">
+                        <code>3Liim5xHAkLEgUjzfw2DNFqbEkzaXgWWu8</code>
+                        <button type="button" class="copy-button" onclick="copyAddress()">Copy Address</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="payment-status">
+                    <span class="form-label">Payment Status:</span>
+                    <select name="paymentMade" class="form-input" required>
+                        <option value="yes">Yes, I've made the payment</option>
+                        <option value="no">No, I'll pay later</option>
+                    </select>
+                </label>
+            </div>
+
+            <button type="submit" class="button">Complete Subscription</button>
+        </form>
+    </div>
+</body>
+</html>

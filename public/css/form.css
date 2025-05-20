@@ -1,0 +1,81 @@
+@import './base.css';
+
+.subscription-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.subscription-plans {
+  display: grid;
+  gap: 1rem;
+}
+
+.plan-option {
+  padding: 1.25rem;
+  border: 2px solid #e2e8f0;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.plan-option:hover {
+  border-color: var(--primary-color);
+}
+
+.plan-details {
+  display: block;
+}
+
+.plan-price {
+  display: block;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.payment-details {
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: var(--border-radius);
+  margin: 1rem 0;
+}
+
+.wallet-address {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: #fff;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+}
+
+.copy-button {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.copy-button:hover {
+  background: #047857;
+}

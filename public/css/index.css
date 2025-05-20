@@ -1,0 +1,23 @@
+@import './base.css';
+
+.benefits-list {
+  list-style: none;
+  margin: 2rem 0;
+}
+
+.benefits-list li {
+  padding: 1.5rem;
+  background: rgba(37, 99, 235, 0.05);
+  margin: 1rem 0;
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+.benefits-list li:hover {
+  transform: translateX(10px);
+}
+
+.container {
+  text-align: center;
+}
