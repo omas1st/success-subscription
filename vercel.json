@@ -1,41 +1,9 @@
 {
     "version": 2,
     "builds": [
-      {
-        "src": "server.js",
-        "use": "@vercel/node",
-        "config": {
-          "includeFiles": [
-            "views/**",
-            "public/**"
-          ]
-        }
-      }
+      { "src": "server.js", "use": "@vercel/node" }
     ],
     "routes": [
-      {
-        "src": "/css/(.*)",
-        "dest": "/public/css/$1",
-        "headers": {
-          "Cache-Control": "public, max-age=31536000, immutable",
-          "Content-Type": "text/css"
-        }
-      },
-      {
-        "src": "/(.*)",
-        "dest": "server.js",
-        "methods": ["GET", "POST"]
-      }
-    ],
-    "env": {
-      "MONGO_URI": "@mongo_uri",
-      "secret_key": "@secret_key",
-      "ADMIN_EMAIL": "@admin_email",
-      "ADMIN_EMAIL_PASSWORD": "@admin_email_password"
-    },
-    "build": {
-      "env": {
-        "NODE_ENV": "production"
-      }
-    }
-  }
+      { "src": "/(.*)", "dest": "server.js" }
+    ]
+}
