@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
@@ -19,8 +20,9 @@ const Subscription = mongoose.model('Subscription', subSchema);
 
 // Middleware
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views')); // Add absolute path
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public'))); // Absolute path for static files
 
 // Routes
 app.get('/', (req, res) => res.render('index'));
